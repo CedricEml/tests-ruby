@@ -1,4 +1,6 @@
-def magic_array(array)
-  array.flatten.map{|e| e * 2 if e.is_a? Numeric}.compact.delete_if {|e| e/3 == e/3.to_f}.uniq.sort
+def titleize(string)
+  stop_words = %w{a an and the or for of nor}
+  string.split.each_with_index.map{|word, index| stop_words.include?(word) && index > 0 ? word : word.capitalize }.join(" ")
 end
-print magic_array([1,4,[3,9,2],3])
+
+puts titleize ("the bridge over the river kwai")
